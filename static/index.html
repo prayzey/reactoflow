@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React to Webflow Converter</title>
+    <link rel="icon" href="data:,">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8/q3qpV4gwZr2RfsKkS6b4FNXjOlo6q1ZCpmQOG5JqXrA6KZsQ6LFN/ySBn8" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/theme/monokai.min.css" rel="stylesheet">
+    <script>
+        window.onerror = function(msg, url, lineNo, columnNo, error) {
+            console.error('Error: ' + msg + '\nURL: ' + url + '\nLine: ' + lineNo + '\nColumn: ' + columnNo + '\nError object: ' + JSON.stringify(error));
+            return false;
+        };
+    </script>
+    <style>
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .animate-gradient {
+            background-size: 200% 200%;
+            animation: gradient 5s ease infinite;
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-gradient-to-br from-purple-100 via-blue-100 to-pink-100">
+    <div class="container mt-4">
+        <h1 class="text-5xl font-black text-center mb-12 text-transparent bg-clip-text bg-gradient-to-r from-purple-700 to-blue-600 animate-gradient">React to Webflow Converter</h1>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 p-8 bg-white/90 backdrop-blur-lg rounded-3xl shadow-2xl">
+            <div class="bg-white rounded-lg shadow-lg p-6">
+                <h2 class="text-xl font-semibold mb-4 text-gray-700">React Code</h2>
+                <textarea id="reactCode" class="w-full h-72 p-5 border-2 border-purple-300 rounded-xl focus:ring-4 focus:ring-purple-400/30 focus:border-purple-400 transition-all text-purple-900 placeholder-purple-400"></textarea>
+            </div>
+            
+            <div class="bg-white rounded-lg shadow-lg p-6">
+                <h2 class="text-xl font-semibold mb-4 text-gray-700">Webflow-Compatible Code</h2>
+                <textarea id="webflowCode" class="w-full h-72 p-5 border-2 border-purple-300 rounded-xl focus:ring-4 focus:ring-purple-400/30 focus:border-purple-400 transition-all text-purple-900 placeholder-purple-400" readonly></textarea>
+            </div>
+        </div>
+        
+        <div class="flex justify-center mt-8 space-x-4">
+            <button id="convertBtn" class="px-10 py-4 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white font-bold rounded-2xl shadow-lg hover:shadow-xl hover:scale-[1.02] transition-all duration-300 flex items-center gap-3">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
+                Convert Now
+            </button>
+            <button id="copyBtn" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-6 rounded-lg transition duration-200">
+                Copy Result
+            </button>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/xml/xml.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/javascript/javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/jsx/jsx.min.js"></script>
+    <script src="/static/script.js"></script>
+</body>
+</html>
